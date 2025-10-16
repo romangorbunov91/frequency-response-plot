@@ -39,7 +39,7 @@ for idx = 1:NUM_OF_DATASETS
     outputDataset{idx} = zeros(numOfPointsWithinDataset, 3);
     outputDataset{idx}(:,1) =                 internalDataset{idx}(:, 1);
     outputDataset{idx}(:,2) = mag2db ( abs  ( internalDataset{idx}(:, 2) ));
-    outputDataset{idx}(:,3) = rad2deg( angle( internalDataset{idx}(:, 2) ));
+    outputDataset{idx}(:,3) = rad2deg( unwrap(angle( internalDataset{idx}(:, 2) )));
     clearvars numOfPointsWithinDataset
 end
 

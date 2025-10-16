@@ -2,8 +2,8 @@ function [funcOut, fileList, numFiles] = importData(index, platformName)
 % Import DATA from 'data'-folder.
 
 % DAC gains.
-gainDACx = 4095 / 0.1;
-gainDACy = 4095 / 12;
+gainDACx = 1;%4095 / 0.1;
+gainDACy = 1;%4095 / 12;
 
 % Variables: index within a file.
 fileColumnIndex.frequency_Hz = uint8(1); % file column 1
