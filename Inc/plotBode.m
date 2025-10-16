@@ -5,7 +5,7 @@ set(0, "defaultaxesfontsize", 24); % axes labels fontsize.
 X_LIM = [10, 50e3];
 %USER_LEGEND = fileList;
 USER_LEGEND = {'Digital Points', 'Func.', 'Simulation'};
-USER_TITLE = 'Control-to-current frequency response at 24 Vin, 19.2 Ohm';
+USER_TITLE = 'Control-to-voltage frequency response at 24 Vin, 19.2 Ohm';
 %USER_TITLE = [];
 
 [~, numPlotDatasets] = size(plotData);
