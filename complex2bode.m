@@ -1,11 +1,11 @@
 function outputDataset = complex2bode(inputDataset)
 % Title: Convertes complex frequency response to BODE response.
-% Version: 1.1
+% Version: 1.2
 % Type: GENERAL
     % GENERAL - created for a varaity of applications.
     % SPECIFIC - based on the GENERAL (version x.x), but its funcionality is
         % modified in a way it looses its generality.
-% Released: 21-Mar-2023
+% Released: 16-Oct-2025
 % Author: Roman Gorbunov
 % Function info:
     % INPUTS:
@@ -15,11 +15,11 @@ function outputDataset = complex2bode(inputDataset)
                 % (:, 1) - frequency, Hz;
                 % (:, 2) - complex gain.
    % OUTPUTS:
-        % 'outputDataset' - same type and suze as 'inputDataset',
+        % 'outputDataset' - same type and size as 'inputDataset',
             % but each dataset consists of 3 columns:
                 % (:, 1) - frequency, Hz;
                 % (:, 2) - magnitude, dB;
-                % (:, 3) - argument, deg.
+                % (:, 3) - phase, deg.
 
 internalDataset = inputDataset;
 if iscell(inputDataset)
@@ -38,8 +38,8 @@ for idx = 1:NUM_OF_DATASETS
     [numOfPointsWithinDataset, ~] = size(internalDataset{idx});
     outputDataset{idx} = zeros(numOfPointsWithinDataset, 3);
     outputDataset{idx}(:,1) =                 internalDataset{idx}(:, 1);
-    outputDataset{idx}(:,2) = mag2db ( abs  ( internalDataset{idx}(:, 2) ));
-    outputDataset{idx}(:,3) = rad2deg( unwrap(angle( internalDataset{idx}(:, 2) )));
+    outputDataset{idx}(:,2) = mag2db ( abs  ( internalDataset{idx}(:, 2)));
+    outputDataset{idx}(:,3) = rad2deg( unwrap(angle( internalDataset{idx}(:, 2))));
     clearvars numOfPointsWithinDataset
 end
 
